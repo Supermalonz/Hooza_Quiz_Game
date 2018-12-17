@@ -62,15 +62,15 @@ public class QuizStudent extends javax.swing.JFrame implements Runnable {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(20, 20));
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         t.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
-        t.setForeground(new java.awt.Color(153, 0, 153));
+        t.setForeground(new java.awt.Color(255, 255, 255));
         t.setText("ID: "+ test.getId()+"  Name: "+test.getFname()+"  Score: "+ test.getScore());
 
-        Join.setBackground(new java.awt.Color(255, 204, 255));
+        Join.setBackground(new java.awt.Color(55, 127, 234));
         Join.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
-        Join.setForeground(new java.awt.Color(102, 0, 102));
+        Join.setForeground(new java.awt.Color(255, 255, 255));
         Join.setText("Join");
         Join.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,9 +78,9 @@ public class QuizStudent extends javax.swing.JFrame implements Runnable {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(255, 204, 255));
+        jButton2.setBackground(new java.awt.Color(55, 127, 234));
         jButton2.setFont(new java.awt.Font("MS Gothic", 0, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(153, 0, 153));
+        jButton2.setForeground(new java.awt.Color(255, 255,255));
         jButton2.setText("Cancel");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

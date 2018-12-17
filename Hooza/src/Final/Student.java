@@ -47,20 +47,21 @@ public class Student implements ActionListener, Serializable {
     private JFrame waitt = new JFrame();
     private int size;
     private Socket s;
+    private JTextField ipField = new JTextField();
     public Student(User u) {
         this.user = u;
         loginPanel = new JPanel();
         loginPanel.setBackground(Color.WHITE);
         loginPanel.setLayout(new GridLayout(0, 1));
         loginPanel.setSize(800, 600);
-        JTextField ipField = new JTextField();
+
         JTextField usernameField = new JTextField();
         JButton connectButton = new JButton("Connect");
         JButton exitButton = new JButton("Cancel");
         loginPanel.setFont(new Font("MS Gothic", 0, 14));
         JLabel ipname = new JLabel("IP Address");
         ipname.setFont(new Font("MS Gothic", 0, 14));
-        
+
         JLabel usernamel = new JLabel("Username");
         usernamel.setFont(new Font("MS Gothic", 0, 14));
         loginPanel.add(ipname);
@@ -109,18 +110,18 @@ public class Student implements ActionListener, Serializable {
         ansD.addActionListener(this);
         login.setDefaultCloseOperation(login.HIDE_ON_CLOSE);
         game.setDefaultCloseOperation(game.HIDE_ON_CLOSE);
-        
-        
-        
+
+
+
         //wait
         wait.setFont(new Font("MS Gothic", 0, 14));
         waiting.add(wait);
         waitt.add(waiting);
         waiting.setBackground(new Color(55, 127, 234));
-         waitt.setSize(500, 400);
-       waitt.setResizable(false);
+        waitt.setSize(500, 400);
+        waitt.setResizable(false);
         waitt.setLocation(600, 200);
-        
+
 
     }
 
@@ -142,10 +143,24 @@ public class Student implements ActionListener, Serializable {
         //188	143	143
         tmpPN.setBackground(new Color(55, 127, 234));
         gamePanel.add(tmpPN);
+        lquestion.setFont(new java.awt.Font("Tahoma", Font.BOLD, 19));
+        lquestion.setForeground(Color.white);
         ansA = new JButton("A");
 
         ansB = new JButton("B");
+        lA.setForeground(Color.white);
+        lA.setFont(new java.awt.Font("Tahoma", 0, 16));
 
+        lB.setForeground(Color.white);
+        lB.setFont(new java.awt.Font("Tahoma", 0, 16));
+
+        lC.setForeground(Color.white);
+        lC.setFont(new java.awt.Font("Tahoma", 0, 16));
+
+        lD.setForeground(Color.white);
+        lD.setFont(new java.awt.Font("Tahoma", 0, 16));
+
+        time.setForeground(Color.white);
         ansC = new JButton("C");
 
         ansD = new JButton("D");
@@ -181,7 +196,7 @@ public class Student implements ActionListener, Serializable {
                     waitt.setVisible(false);
                     count++;
                     time.stop();
-                    
+
                 }
                 else if(dataIn.equals("Stop")){
                     game.setVisible(false);
@@ -196,21 +211,21 @@ public class Student implements ActionListener, Serializable {
                     objIn.close();
                     s.close();
                     time.close();
-                    
+
                 }
-                
+
             } catch (IOException ex) {
                 Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
             }
             if (count == q.getProblems().size()){
                 playing = false;
-                 game.setVisible(true);
-                    waitt.setVisible(false);
+                game.setVisible(true);
+                waitt.setVisible(false);
                 System.out.println("end");
             }
 
 
-        }             
+        }
         time.stop();
         time.close();
         time.setText("");
@@ -250,7 +265,7 @@ public class Student implements ActionListener, Serializable {
                     try {
                         if (i == 0 && count != size) {
                             new Time1();
-                            
+
                             game.setVisible(false);
                             waitt.setVisible(true);
 
@@ -294,8 +309,8 @@ public class Student implements ActionListener, Serializable {
             login.setVisible(false);
 
             try {
-                 s = new Socket("127.0.0.1", 5555);
-                
+                s = new Socket(ipField.getText(), 5555);
+
                 in = new BufferedReader(new InputStreamReader(s.getInputStream()));
                 out = new PrintWriter(s.getOutputStream(), true);
                 objIn = new ObjectInputStream(s.getInputStream());
@@ -313,10 +328,10 @@ public class Student implements ActionListener, Serializable {
 
                                     System.out.println("game start");
                                     try {
-                                       
+
                                         System.out.println("ink");
                                         quiz = (Quiz) objIn.readObject();
-                                        
+
                                         System.out.println("recv obj");
                                         System.out.println(quiz.toString());
                                         gameplay(quiz);

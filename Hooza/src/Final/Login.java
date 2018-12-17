@@ -56,7 +56,7 @@ public class Login extends JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 //        setBackground(new java.awt.Color(255, 200, 72));
         getContentPane().setBackground(new java.awt.Color(255, 200, 72));
-        setForeground(java.awt.Color.pink);
+        setForeground(Color.white);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 11)); // NOI18N
