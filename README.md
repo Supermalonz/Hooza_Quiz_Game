@@ -1,87 +1,50 @@
-# Project Title
+# 🔐 Hooza ( Quiz Game)
+Hooza คือ โปรแกรมที่ไว้ใช้สำหรับการสร้างคำถามไว้สำหรับ `Teacher` ในการสร้างคำถามเพื่อทบทวนเนื้อหาที่ได้เรียนมาหรือเนื้อหาที่อยากทำสอบ 
 
-One Paragraph of project description goes here
+# 🗜️การทำงานของ Hooza?
+`Hooza` จะทำงานในวง Local host โดยผู้เป็น `Teacher` จะเป็นผู้สร้างการเชื่อมต่อขึ้นมา และตัว `Student` จะเป็นผู้ที่เชื่อมต่อเข้ามาที่ Lobby
 
-## Getting Started
+## ภาษาที่ใช้ในการทำ Hooza
+<img src="http://www.digitaltrends.com/wp-content/uploads/2010/11/java-logo.jpg" >
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+### ตัวอย่าง Code ของ การสร้าง Socket ของ Server
+```java
+public void run(){
 
-### Prerequisites
-
-What things you need to install the software and how to install them
-
+        try {
+            ss = new ServerSocket(5555);
+            System.out.println("Server is running..");
+            analysis = new QuestionAnalysis();
+            while (!exit){
+                client = new Clienthanler(ss.accept());
+                client.setQuestionAna(analysis);
+                tr = new Thread(client);  //tr stand for Thread
+                tr.start();
+                list.add(client);
+                try{
+                    Thread.sleep(10);
+                    ta.append(client.getID() + "\n");
+                }catch (Exception ex){
+                    System.out.println("Thread sleep error :" + ex);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 ```
-Give examples
-```
+### ตัวอย่างของโปรแกรม Hooza
 
-### Installing
+# 👥Team Member
 
-A step by step series of examples that tell you how to get a development env running
+|<a href=""><img src="https://scontent.fbkk2-8.fna.fbcdn.net/v/t1.0-9/18156901_1456506974417122_2622418456792260905_n.jpg?_nc_cat=109&_nc_ht=scontent.fbkk2-8.fna&oh=0c174e778166cbfb620e3f7eadd1ea87&oe=5C9609FB" width="100px"></a>  |<a href=""><img src="https://scontent.fbkk2-8.fna.fbcdn.net/v/t1.0-9/35058209_1947809241953557_2314018221763592192_n.jpg?_nc_cat=104&_nc_ht=scontent.fbkk2-8.fna&oh=9cda7e3980e022766409e7ace785f955&oe=5CAA9431" width="100px"></a>  |
+| :-: | :-: |
+|นายกวีพล ขุนศรี|นายชยากร เทียนขาว|
+|60070003 |      60070013      |
+|    @Supermalonz    |     @Cyk     |
 
-Say what the step will be
+# 👨‍🏫 Instructor
 
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+|<a href=""><img src="https://scontent.fbkk2-7.fna.fbcdn.net/v/t1.0-9/37121505_10156492178048805_2165340472749326336_n.jpg?_nc_cat=111&_nc_ht=scontent.fbkk2-7.fna&oh=9455db85c22726de7279c1b8a0065954&oe=5C930D70" width="100px"></a>|
+| :-: |
+|ผศ.ดร.ธนิศา นุ่มนนท|
